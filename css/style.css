@@ -65,6 +65,7 @@ strong{
     }
 }
 
+
 /* лого + меню */
 header{
     background: url('../images/header.jpg') no-repeat;
@@ -72,6 +73,7 @@ header{
     /* mix-blend-mode: darken; */
     position: relative;
 }
+
 header::after{
     content: '';
     position: absolute;
@@ -88,6 +90,10 @@ header .wrapper{
     align-items: center;
     position: relative;
     z-index: 2;
+}
+
+#logo img{
+    height:110px;
 }
 
 #nav{
@@ -124,7 +130,7 @@ header .wrapper{
 /* банер */
 #banner{
     margin:15px 0;
-    height: 600px;
+    height: 500px;
     background: transparent;
 }
 
@@ -246,25 +252,38 @@ header .wrapper{
 }
 
 /* опис */
-#desc{
+#description{
     padding:70px 0;
     text-align: justify;
     font-style: italic;
     color:var(--gray);
 }
 
-#desc .wrapper{
-    width:40%;
+#description .wrapper{
     flex-flow: column;
 }
 
-#desc h1,
-#desc h2,
-#desc h3,
-#desc h4,
-#desc h5{
+#description h1,
+#description h2,
+#description h3,
+#description h4,
+#description h5{
     color:var(--black);
+    width: 50%;
+    margin-left:auto;
+    margin-right:auto;
 }
+
+#description p{
+    width: 50%;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+#description .width-100{
+    width: 100%;
+}
+
 
 /* скролл */
 #scroll{
@@ -307,7 +326,8 @@ header .wrapper{
 }
 
 /* телефон */
-#footer-button a[href^="tel"]{
+#footer-button a[href^="tel"],
+#footer-button a[href^="https://"]{
     padding:0;
     color:var(--gold);
     background: transparent;
