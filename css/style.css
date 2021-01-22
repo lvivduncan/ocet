@@ -328,7 +328,7 @@ header .wrapper{
 #copy{
     background:var(--gold-dark);
     font-size:13px;
-    color:var(--black);
+    color:var(--white);
 }
 
 #copy p{
@@ -336,9 +336,32 @@ header .wrapper{
 }
 
 #copy a{
-    color:var(--black);
+    color:var(--white);
 }
 
 #copy a:hover{
     text-decoration:none;
+}
+
+
+/* кнопка вгору */
+#up{ 
+	bottom: 40px;
+	right: 40px;
+	display: none; 
+	height: 50px; 
+	width: 50px; 
+    position: fixed; 
+    z-index:99;
+	text-decoration: none; 
+	transition: .8s; 
+}
+
+#up svg{
+    fill:var(--gold);
+    transition: .8s; 
+}
+
+#up:hover svg{ 
+    fill:var(--gray);
 }
