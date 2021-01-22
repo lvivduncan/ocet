@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
+@import url('./animate.css');
+@import url('./jquery.fancybox.min.css');
+@import url('./owl.carousel.min.css');
+
 /* font-family: 'Merriweather', serif; */
 
 *,
@@ -11,3 +15,330 @@
     box-sizing: border-box;
 }
 
+:root{
+    --gray: #888;
+    --gray-light: rgba(255, 255, 255, 0.8);
+    --black: #222;
+    --white: #fff;
+    --gold: #c59d5f;
+    --gold-dark: #bd904a;
+    --opacity-4:rgba(0,0,0,.4);
+}
+
+body{
+    padding:15px;
+    background: ivory;
+    font-size:16px;
+}
+
+p{
+    margin:0 0 30px;
+    line-height: 1.9;
+}
+
+h1,h2,h3,h4,h5{
+    font-family: 'Merriweather', serif;
+    margin:0 0 30px;
+    line-height: 1.9;
+}
+
+img{
+    max-width:100%;
+}
+
+strong{
+    font-family: 'Merriweather', serif;
+    font-weight: 900
+}
+
+
+/* контейнер */
+.wrapper{
+    width:1200px;
+    margin:auto;
+    display: flex;
+}
+
+@media(max-width:1250px){
+    .wrapper{
+        width:95%;
+    }
+}
+
+/* лого + меню */
+header{
+    background: url('../images/header.jpg') no-repeat;
+    background-size: cover;
+    /* mix-blend-mode: darken; */
+    position: relative;
+}
+header::after{
+    content: '';
+    position: absolute;
+    top:0;
+    right:0;
+    bottom:0;
+    left:0;
+    z-index: 1;
+    background:var(--opacity-4);
+    display: inline-block;
+}
+
+header .wrapper{
+    align-items: center;
+    position: relative;
+    z-index: 2;
+}
+
+#nav{
+    margin-left: auto;
+}
+
+#nav ul{
+    display: flex;
+}
+
+#nav ul li{
+    display: inline-block;
+    margin:0 0 0 15px;
+}
+
+#nav a{
+    color:var(--gray-light);
+    text-transform: uppercase;
+    text-decoration:none;
+    letter-spacing: 1px;
+    font-weight:700;
+    transition: .5s;
+}
+
+#nav a.current{
+    color:var(--gold);
+}
+
+#nav a:hover{
+    color:var(--gold-dark);
+}
+
+
+/* банер */
+#banner{
+    margin:15px 0;
+    height: 600px;
+    background: transparent;
+}
+
+#banner .wrapper{
+    align-items: flex-start;
+    flex-flow: column;
+    justify-content: center;
+    height: 100%;
+}
+
+#banner h1,
+#banner h2{
+    color:var(--white);
+    font-family: 'Noto Sans', sans-serif;
+    font-size:40px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+#banner h1{
+    font-size:60px;
+}
+
+#banner h3,
+#banner h4{
+    color:var(--gold);
+    font-size:30px;
+    font-style: italic;
+    font-weight:400;
+}
+
+
+/* про нас */
+#about{
+    padding:70px 0;
+}
+
+#about .wrapper{
+    gap:30px;
+}
+
+#about-text{
+    width:40%;
+    font-style: italic;
+    color:var(--gray);
+}
+
+/* кнопка */
+#about-text a{
+    display: inline-block;
+    padding:10px 40px;
+    color:var(--white);
+    text-transform: uppercase;
+    background:var(--gold);
+    text-decoration: none;
+    letter-spacing: 1px;
+    font-weight: 700;
+    font-style:normal;
+    transition: .5s;
+}
+
+#about-text a:hover{
+    background:var(--gold-dark);
+}
+
+#about-text h1{
+    font-style: normal;
+    color:var(--gold-dark);
+    text-transform: uppercase;
+    font-family: 'Noto Sans', sans-serif;
+    font-size:30px;
+}
+
+#about-images{
+    width:60%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    gap:30px;
+}
+
+#about-images img{
+    transition: .5s;
+}
+
+#about-images img:hover{
+    opacity:.8;
+}
+
+/* слоган/гасло */
+#motto{
+    height: 400px;
+    color:var(--white);
+}
+
+#motto .wrapper{
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    flex-flow: column;
+}
+
+#motto h1,
+#motto h2,
+#motto h3,
+#motto h4,
+#motto h5{
+    margin:0;
+    font-family: 'Noto Sans', sans-serif;
+    text-transform: uppercase;
+    font-size:34px;
+}
+
+#motto p{
+    margin:0;
+    font-style: italic;
+    font-size: 22px;
+    color:var(--gold);
+}
+
+/* опис */
+#desc{
+    padding:70px 0;
+    text-align: justify;
+    font-style: italic;
+    color:var(--gray);
+}
+
+#desc .wrapper{
+    width:40%;
+    flex-flow: column;
+}
+
+#desc h1,
+#desc h2,
+#desc h3,
+#desc h4,
+#desc h5{
+    color:var(--black);
+}
+
+/* скролл */
+#scroll{
+    overflow: hidden;
+}
+
+
+/* футер */
+#footer{
+    padding:70px 0
+}
+
+#footer .wrapper{
+    align-items: center;
+    justify-content: center;
+    gap:30px;
+}
+
+#footer-button{
+    width:50%;
+    text-align:center;
+}
+
+/* кнопка */
+#footer-button a{
+    display: inline-block;
+    padding:10px 40px;
+    color:var(--white);
+    text-transform: uppercase;
+    background:var(--gold);
+    text-decoration: none;
+    letter-spacing: 1px;
+    font-weight: 700;
+    font-style:normal;
+    transition: .5s;
+}
+
+#footer-button a:hover{
+    background:var(--gold-dark);
+}
+
+/* телефон */
+#footer-button a[href^="tel"]{
+    padding:0;
+    color:var(--gold);
+    background: transparent;
+    font-family: 'Merriweather', serif;
+}
+
+#footer-address{
+    width:50%;
+}
+
+#footer-address iframe{
+    width:100%!important;
+    height:350px!important;
+}
+
+
+/* цопірайти */
+#copy{
+    background:var(--gold-dark);
+    font-size:13px;
+    color:var(--black);
+}
+
+#copy p{
+    margin:10px 0;
+}
+
+#copy a{
+    color:var(--black);
+}
+
+#copy a:hover{
+    text-decoration:none;
+}
