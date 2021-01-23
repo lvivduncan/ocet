@@ -31,6 +31,10 @@ body{
     font-size:16px;
 }
 
+body.fixed{
+    overflow: hidden;
+}
+
 p{
     margin:0 0 30px;
     line-height: 1.9;
@@ -96,11 +100,17 @@ header .wrapper{
     height:110px;
 }
 
+@media(max-width:500px){
+    #logo img{
+        height: 80px;
+    }
+}
+
 #nav{
     margin-left: auto;
 }
 
-@media(max-width:776px){
+@media(max-width:996px){
     #nav{
         display: none;
     }
@@ -135,6 +145,8 @@ header .wrapper{
 /* мобільне меню */
 #menu-button{
     display: none;
+    position: relative;
+    z-index: 21;
 }
 
 @media(max-width:996px){
@@ -149,6 +161,36 @@ header .wrapper{
     fill:var(--white);
     cursor:pointer;
 }
+
+
+#nav.mobile {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 15;
+    background: var(--black);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+}
+
+#nav.mobile ul {
+    padding: 0 0 20px;
+    flex-flow: column;
+    text-align: center;
+}
+
+#nav.mobile li a {
+    display: block;
+    color: var(--white);
+    padding: 10px 0;
+}
+
+
 
 /* банер */
 #banner{
@@ -179,12 +221,26 @@ header .wrapper{
     line-height: 1;
 }
 
+@media(max-width:500px){
+    #banner h1{
+        font-size:40px;
+    }
+}
+
 #banner h3,
 #banner h4{
     color:var(--gold);
     font-size:30px;
     font-style: italic;
     font-weight:400;
+}
+
+@media(max-width:500px){
+    #banner h3,
+    #banner h4{
+        font-size: 22px;
+        line-height: 1.4;
+    }
 }
 
 
@@ -197,10 +253,22 @@ header .wrapper{
     gap:30px;
 }
 
+@media(max-width:500px){
+    #about .wrapper{
+        flex-flow:column;
+    }
+}
+
 #about-text{
     width:40%;
     font-style: italic;
     color:var(--gray);
+}
+
+@media(max-width:500px){
+    #about-text{
+        width:100%;
+    }
 }
 
 /* кнопка */
@@ -237,6 +305,13 @@ header .wrapper{
     gap:30px;
 }
 
+@media(max-width:500px){
+    #about-images{
+        width:100%;
+        flex-flow: column;
+    }
+}
+
 #about-images img{
     transition: .5s;
 }
@@ -249,6 +324,7 @@ header .wrapper{
 #motto{
     height: 400px;
     color:var(--white);
+    text-align:center;
 }
 
 #motto .wrapper{
@@ -267,6 +343,7 @@ header .wrapper{
     font-family: 'Noto Sans', sans-serif;
     text-transform: uppercase;
     font-size:34px;
+    line-height: 1;
 }
 
 #motto p{
@@ -299,9 +376,26 @@ header .wrapper{
     margin-right:auto;
 }
 
+@media(max-width:500px){
+    #description h1,
+    #description h2,
+    #description h3,
+    #description h4,
+    #description h5{
+        width:100%;
+        text-align:center;
+    }
+}
+
 #description p{
     width: 50%;
     margin: 15px auto;
+}
+
+@media(max-width:500px){
+    #description p{
+        width:100%
+    }
 }
 
 /* паралаксова вставка */
@@ -335,9 +429,21 @@ header .wrapper{
     gap:30px;
 }
 
+@media(max-width:500px){
+    #footer .wrapper{
+        flex-flow: column;
+    }
+}
+
 #footer-button{
     width:40%;
     text-align:center;
+}
+
+@media(max-width:500px){
+    #footer-button{
+        width:100%;
+    }
 }
 
 /* кнопка */
@@ -369,6 +475,12 @@ header .wrapper{
 
 #footer-address{
     width:60%;
+}
+
+@media(max-width:500px){
+    #footer-address{
+        width:100%;
+    }
 }
 
 #footer-address iframe{

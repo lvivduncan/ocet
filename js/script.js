@@ -37,3 +37,9 @@ $('#up').click(function(){
     $("html, body").animate({ scrollTop: 0 }, 600);
     return false;
 });
+
+$('#menu-button').on('click', function(){
+    $('#nav').toggleClass('mobile');
+    $('#menu-button').toggleClass('white');
+    $('body').toggleClass('fixed');
+});
