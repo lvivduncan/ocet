@@ -1,5 +1,5 @@
 // parallax banner
-$('#banner').parallax({imageSrc: 'images/banner.jpg'});
+// $('#banner').parallax({imageSrc: 'images/banner.jpg'});
 
 $('#motto').parallax({imageSrc: 'images/motto.jpg'});
 
