@@ -243,6 +243,25 @@ header .wrapper{
     }
 }
 
+/**/
+#gallery{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-gap:20px;
+}
+
+@media(max-width:776px){
+    #gallery{
+        grid-template-columns: repeat(2,1fr);
+    }
+}
+
+@media(max-width:500px){
+    #gallery{
+        grid-template-columns: 1fr;
+    }
+}
+
 
 /* про нас */
 #about{
