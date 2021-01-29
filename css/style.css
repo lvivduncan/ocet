@@ -452,6 +452,12 @@ header .wrapper{
     margin: 15px auto;
 }
 
+@media(max-width:776px){
+    #description form{
+        width:100%;
+    }
+}
+
 #description form label{
     display:block;
     margin:0 0 5px;
