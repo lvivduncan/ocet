@@ -4,8 +4,6 @@
 @import url('./jquery.fancybox.min.css');
 @import url('./owl.carousel.min.css');
 
-/* font-family: 'Merriweather', serif; */
-
 *,
 ::after,
 ::before{
@@ -23,6 +21,7 @@
     --gold: #c59d5f;
     --gold-dark: #bd904a;
     --opacity-4:rgba(0,0,0,.4);
+    --red: #800000;
 }
 
 body{
@@ -56,6 +55,7 @@ strong{
 }
 
 
+
 /* контейнер */
 .wrapper{
     width:1200px;
@@ -68,6 +68,7 @@ strong{
         width:95%;
     }
 }
+
 
 
 /* лого + меню */
@@ -200,6 +201,12 @@ header .wrapper{
     text-align: center;
 }
 
+@media(max-width:776px){
+    #banner{
+        height: 300px;
+    }
+}
+
 #banner .wrapper{
     align-items: center;
     flex-flow: column;
@@ -243,6 +250,8 @@ header .wrapper{
     }
 }
 
+
+
 /**/
 #gallery{
     display: grid;
@@ -261,6 +270,7 @@ header .wrapper{
         grid-template-columns: 1fr;
     }
 }
+
 
 
 /* про нас */
@@ -339,6 +349,8 @@ header .wrapper{
     opacity:.8;
 }
 
+
+
 /* слоган/гасло */
 #motto{
     height: 400px;
@@ -371,6 +383,8 @@ header .wrapper{
     font-size: 22px;
     color:var(--gold);
 }
+
+
 
 /* опис */
 #description{
@@ -409,6 +423,7 @@ header .wrapper{
 #description p{
     width: 50%;
     margin: 15px auto;
+    font-family: 'Merriweather', serif;
 }
 
 @media(max-width:500px){
@@ -430,11 +445,74 @@ header .wrapper{
     background-attachment: fixed!important;
 }
 
+/* форма замовлення */
+#description form{
+    display: block;
+    width: 50%;
+    margin: 15px auto;
+}
+
+#description form label{
+    display:block;
+    margin:0 0 5px;
+    font-size: 11px;
+    letter-spacing: 1px;
+    font-style: normal;
+    cursor:pointer;
+    color: var(--gold);
+}
+
+#description form label span{
+    color: var(--red);
+}
+ 
+#description form input,
+#description form textarea{
+    display: block;
+    width:100%;
+    margin:0 0 15px;
+    padding:10px;
+    font-family: inherit;
+    background:none;
+    outline:none;
+    border:1px solid var(--gold);
+}
+
+#description form textarea{
+    resize:none;
+    height:110px;
+}
+
+#description form input:focus,
+#description form textarea:focus{
+    border-color:var(--gray);
+}
+
+#description form button{
+    border:none;
+    padding:10px 40px;
+    color:var(--white);
+    text-transform: uppercase;
+    background:var(--gold);
+    text-decoration: none;
+    letter-spacing: 1px;
+    font-weight: 700;
+    font-style:normal;
+    cursor:pointer;
+    transition: .5s;
+}
+
+#description form button:hover{
+    background:var(--gold-dark);
+}
+
+
 
 /* скролл */
 #scroll{
     overflow: hidden;
 }
+
 
 
 /* футер */
@@ -508,6 +586,7 @@ header .wrapper{
 }
 
 
+
 /* цопірайти */
 #copy{
     background:var(--gold-dark);
@@ -526,6 +605,7 @@ header .wrapper{
 #copy a:hover{
     text-decoration:none;
 }
+
 
 
 /* кнопка вгору */
