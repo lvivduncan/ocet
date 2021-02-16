@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Галерея</title>
+    <title> Новини </title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-    <header>
+    <header id="header">
         <div class="wrapper">
             <div id="logo">
                 <a href="">
@@ -33,38 +33,56 @@
 
     <section id="banner" data-parallax="scroll" data-image-src="temp/01.jpg">
         <div class="wrapper wow bounceIn">            
-            <h1>Меню ресторану</h1>
-            <!-- <h3>Європейська та паназійська кухня</h3> -->
+            <h1>Новини</h1>
         </div>
     </section>
+    
+    <section id="articles">
+        <header>
+            <h1>Гарячі новинки</h1>
+            <p>Ресторану на площі Ринок</p>
+        </header>
 
-    <div id="gallery">
-        <a data-fancybox="gallery" href="temp/04.jpg">
-            <img src="temp/04.jpg" alt="" class="wow bounceIn">
-        </a>
-        <a data-fancybox="gallery" href="temp/05.jpg">
-            <img src="temp/05.jpg" alt="" class="wow bounceIn">
-        </a>
-        <a data-fancybox="gallery" href="temp/06.jpg">
-            <img src="temp/06.jpg" alt="" class="wow bounceIn">
-        </a>
-        <a data-fancybox="gallery" href="temp/07.jpg">
-            <img src="temp/07.jpg" alt="" class="wow bounceIn">
-        </a>
-        <a data-fancybox="gallery" href="temp/04.jpg">
-            <img src="temp/04.jpg" alt="" class="wow bounceIn">
-        </a>
-        <a data-fancybox="gallery" href="temp/05.jpg">
-            <img src="temp/05.jpg" alt="" class="wow bounceIn">
-        </a>
-        <a data-fancybox="gallery" href="temp/06.jpg">
-            <img src="temp/06.jpg" alt="" class="wow bounceIn">
-        </a>
-        <a data-fancybox="gallery" href="temp/07.jpg">
-            <img src="temp/07.jpg" alt="" class="wow bounceIn">
-        </a>
+        <article style="background: url('temp/01.jpg')">
+            <h2><a href="">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</a></h2>
+        </article>
 
-    </div>
+        <article style="background: url('temp/01.jpg')">
+            <h2><a href="">Aliquid, omnis sint labore ipsum voluptatibus asperiores non quia beatae soluta accusamus aliquam neque vero.</a></h2>
+        </article>
+
+        <article style="background: url('temp/01.jpg')">
+            <h2><a href="">Et iusto debitis itaque asperiores, obcaecati voluptate, veniam doloribus repudiandae tempora neque, quae at autem quam in fugit omnis!</a></h2>
+        </article>
+
+        <article style="background: url('temp/01.jpg')">
+            <h2><a href="">Architecto nesciunt labore ad iusto facere, reiciendis iure quisquam ipsam non esse, veritatis nisi.</a></h2>
+        </article>
+
+        <article style="background: url('temp/01.jpg')">
+            <h2><a href="">Maiores dicta incidunt, repellendus perspiciatis deleniti numquam mollitia, sapiente laudantium magni possimus aliquam delectus</a></h2>
+        </article>
+
+        <article style="background: url('temp/01.jpg')">
+            <h2><a href="">Libero, saepe! Consequuntur natus odio illo.</a></h2>
+        </article>
+
+        <article style="background: url('temp/01.jpg')">
+            <h2><a href="">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</a></h2>
+        </article>
+
+    </section>
+
+    <ol class="pagination">
+        <li><a href=""><svg viewBox="0 0 256 512"><path d="M31.7 239l136-136c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9L127.9 256l96.4 96.4c9.4 9.4 9.4 24.6 0 33.9L201.7 409c-9.4 9.4-24.6 9.4-33.9 0l-136-136c-9.5-9.4-9.5-24.6-.1-34z"/></svg></a></li>
+        <li><a href="">2</a></li>
+        <li class="MarkupPagerNavOn"><a href="">3</a></li>
+        <li><a href="">4</a></li>
+        <li><a href="">5</a></li>
+        <li><a href=""><svg viewBox="0 0 256 512"><path d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"/></svg></a></li>
+    </ol>
+
+
 
     <footer id="footer">
         <div class="wrapper">
