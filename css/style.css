@@ -304,6 +304,16 @@ a:hover{
     font-size:30px;
 }
 
+/* 16-02-2021 */
+#about-text ul,
+#about-text ol{
+    margin-left: 40px;
+}
+
+#about-text li{
+    margin: 5px 0;
+}
+
 #about-images{
     width:60%;
     /* display: flex; */
@@ -406,7 +416,7 @@ a:hover{
     margin: 15px auto;
 }
 
-@media(max-width:500px){
+@media(max-width:776px){
     #description p{
         width:100%
     }
@@ -756,7 +766,6 @@ a:hover{
 
 #articles header p{
     color: var(--gold);
-    /* text-transform: uppercase; */
     font-weight: 700;
 }
 
