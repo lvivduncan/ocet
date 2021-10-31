@@ -51,15 +51,15 @@ $('#menu-button').on('click', function(){
 
 
 // замовлення 
-let localContent;
-let localPrice;
+
 
 upgradeCheckout();
 
-
-
 // клік на кнопку замовлення
 $('.dish button').on('click', function(){
+
+    let localContent;
+    let localPrice;
 
     // перевіряємо чи є дані у базі
     if(localStorage.getItem('order-content') !== null){
@@ -69,23 +69,22 @@ $('.dish button').on('click', function(){
         localPrice = localStorage.getItem('order-price');
     }
 
-
-    // назва страви 
-    let content = $(this).data('content');
-
-    // вартість
-    let price = $(this).data('price');
-
     // якщо прийшли дані з бази
     if(localContent !== undefined){
 
-        localContent += ';' + content;
-        localPrice += ';' + price;
+        // назва страви
+        localContent += ';' + $(this).data('content');
+
+        // ціна
+        localPrice += ';' + $(this).data('price');
 
     } else {
 
-        localContent = content;
-        localPrice = price;
+        // назва страви
+        localContent = $(this).data('content');
+
+        // ціна
+        localPrice = $(this).data('price');
     }
 
     // надсилаємо дані в базу після обробки
@@ -96,20 +95,33 @@ $('.dish button').on('click', function(){
     upgradeCheckout();
 });
 
+// видаляємо дані з кошика (по 1 ітему)
 $('#checkout-goods').on('click', function(event){
 
     // номер товару у кошикові
     const id = event.target.dataset.id;
 
-    let localContent1 = localStorage.getItem('order-content').split(';');
-    let localPrice1 = localStorage.getItem('order-price').split(';');
+    const localContent = localStorage.getItem('order-content').split(';');
+    const localPrice = localStorage.getItem('order-price').split(';');
 
-    localContent1.splice(id, 1);
-    localPrice1.splice(id, 1);
+    // const length = localContent.length;
 
-    // надсилаємо дані в базу після обробки
-    localStorage.setItem('order-content', localContent1.join(';'));
-    localStorage.setItem('order-price', localPrice1.join(';'));
+    console.log(localContent, localPrice)
+
+    if(localContent.length == 1){
+
+        localStorage.clear();
+        // $('#checkout-goods').html('');
+
+    } else {
+        
+        localContent.splice(id, 1);
+        localPrice.splice(id, 1);
+
+        // надсилаємо дані в базу після обробки
+        localStorage.setItem('order-content', localContent.join(';'));
+        localStorage.setItem('order-price', localPrice.join(';'));
+    }
 
     // оновлюємо дані кошика
     upgradeCheckout();
@@ -132,7 +144,7 @@ function upgradeCheckout(){
 
         for(let i = 0; i<localContent.length; i++){
 
-            content += '<li data-id="' + i + '">' + i + ' - ' + localContent[i] + '</li>';
+            content += `<p data-id="${i}">${localContent[i]}</p>`;
             price += +localPrice[i];
         }
 
@@ -144,11 +156,11 @@ function upgradeCheckout(){
 
         // ховаємо кошик, якщо даних немає 
         $('#checkout').removeClass('active');
+
+        // додатково очищаємо блок з виводом товарів
+        $('#checkout-goods').html('');
+
+        // і ціну
+        $('#checkout-price strong').html('');
     }
-}
-
-// видаляємо дані з кошика (по 1 ітему)
-function deleteGoods(){
-
-
 }
