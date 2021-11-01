@@ -1170,7 +1170,8 @@ a:hover
     font-family: 'Noto Sans', sans-serif;
     text-transform: uppercase;
     color: var(--gold);
-    margin: 0 0 20px;
+    /* margin: 0 0 20px; */
+    margin: 0;
 }
 
 @media(max-width:996px)
@@ -1189,7 +1190,7 @@ a:hover
     }
 }
 
-.dish ul,
+/* .dish ul,
 .dish ol 
 {
     margin: 30px 0;
@@ -1220,6 +1221,15 @@ a:hover
     border-radius: 50%;
     background: var(--gray);
     margin: 0 10px 0 0;
+} */
+
+.dish-description 
+{
+    margin: 30px 0;
+    line-height: 1.8;
+    font-family: 'Merriweather', serif;
+    font-style: italic;
+    color: var(--gray);
 }
 
 .dish button 
@@ -1437,8 +1447,10 @@ a:hover
 /* блок у формі, куди виводяться усі замовлені товари */
 #form-goods 
 {
-
+    margin: 30px 0;
 }
+
+
 
 #form-price::after 
 {

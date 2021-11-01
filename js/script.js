@@ -1,6 +1,3 @@
-// parallax banner
-// $('#banner').parallax({imageSrc: 'images/banner.jpg'});
-
 $('#motto').parallax({imageSrc: 'images/motto.jpg'});
 
 // animation
@@ -57,9 +54,6 @@ $('#menu-button').on('click', function(){
 // оновлення кошика
 upgradeCheckout();
 
-// оновлення товарів у формі
-upgradeForm();
-
 // клік на кнопку замовлення
 $('.dish button').on('click', function(){
 
@@ -109,15 +103,9 @@ $('#checkout-goods').on('click', function(event){
     const localContent = localStorage.getItem('order-content').split(';');
     const localPrice = localStorage.getItem('order-price').split(';');
 
-    // const length = localContent.length;
-
-    console.log(localContent, localPrice)
-
     if(localContent.length == 1){
 
         localStorage.clear();
-        // $('#checkout-goods').html('');
-
     } else {
         
         localContent.splice(id, 1);
@@ -132,12 +120,17 @@ $('#checkout-goods').on('click', function(event){
     upgradeCheckout();
 });
 
-$('#form-goods').on('click', function(event){
+/////////////////////
+// відправка форми //
+/////////////////////
 
-    console.log(event.target)
+// після відправки очищаємо базу
+$('#order form').submit(function() {
+    
+    localStorage.clear();
 });
 
-// оновлення даних кошика
+// оновлення даних кошика (у тому числі і у формі)
 function upgradeCheckout(){
 
     // смикаємо базу, обробляємо дані і виводимо
@@ -160,8 +153,28 @@ function upgradeCheckout(){
 
         // додаємо дані
         $('#checkout-goods').html(content);
-
+        // сума
         $('#checkout-price strong').html(price);
+
+        // блок, який генерується і вставляється на сторінці оформлення
+        const orderContent = `
+            <h1>Ви замовили: </h1>            
+            <div id="checkout-goods">${content}</div>
+            <div id="checkout-price">На суму: <strong>${price}</strong></div>
+            <p>Поля зі зірочкою (*) обов'язкові до заповнення</p>
+            <form>
+                <input type="text" name="name" placeholder="Ваше ім'я *" required>
+                <input type="text" name="phone" placeholder="Ваш телефон *" required>
+                <input type="text" name="mail" placeholder="Ваш email *" required>
+                
+                <textarea name="message" placeholder="Примітка"></textarea>
+                <button id="form-send">Підтвердити замовлення!</button>
+            </form>
+        `;
+
+        // сторінка оформлення
+        $('#order').html(orderContent);
+
     } else {
 
         // ховаємо кошик, якщо даних немає 
@@ -172,44 +185,8 @@ function upgradeCheckout(){
 
         // і ціну
         $('#checkout-price strong').html('');
-    }
-}
 
-// оновлення товарів у формі замовлення
-function upgradeForm(){
-
-    // смикаємо базу, обробляємо дані і виводимо
-    if(localStorage.getItem('order-content') !== null){
-
-        // показати кошик, якщо є дані
-        // $('#checkout').addClass('active');
-
-        let localContent = localStorage.getItem('order-content').split(';');
-        let localPrice = localStorage.getItem('order-price').split(';');
-    
-        let content = '';
-        let price = 0;
-
-        for(let i = 0; i<localContent.length; i++){
-
-            content += `<p data-id="${i}">${localContent[i]}</p>`;
-            price += +localPrice[i];
-        }
-
-        // додаємо дані
-        $('#form-goods').html(content);
-
-        $('#form-price').html(price);
-    }
-     else {
-
-        // ховаємо кошик, якщо даних немає 
-        // $('#checkout').removeClass('active');
-
-        // додатково очищаємо блок з виводом товарів
-        // $('#checkout-goods').html('');
-
-        // і ціну
-        // $('#checkout-price strong').html('');
+        // очищаємо контент на сторінці оформлення
+        $('#order').html('');
     }
 }
