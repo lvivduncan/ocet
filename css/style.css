@@ -1377,6 +1377,14 @@ a:hover
     margin: auto;
 }
 
+@media(max-width:480px)
+{
+    #order 
+    {
+        width: 95%;
+    }
+}
+
 #order form 
 {
     display: flex;
