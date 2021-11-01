@@ -144,10 +144,13 @@ function upgradeCheckout(){
     
         let content = '';
         let price = 0;
+        // content for input[type="hidden"]
+        let hidden = '';
 
         for(let i = 0; i<localContent.length; i++){
 
             content += `<p data-id="${i}">${localContent[i]}</p>`;
+            hidden += localContent[i] + ', ';
             price += +localPrice[i];
         }
 
@@ -166,7 +169,8 @@ function upgradeCheckout(){
                 <input type="text" name="name" placeholder="Ваше ім'я *" required>
                 <input type="text" name="phone" placeholder="Ваш телефон *" required>
                 <input type="text" name="mail" placeholder="Ваш email *" required>
-                
+                <input type="hidden" name="dish" value="${hidden}">
+                <input type="hidden" name="price" value="${price}">
                 <textarea name="message" placeholder="Примітка"></textarea>
                 <button id="form-send">Підтвердити замовлення!</button>
             </form>
