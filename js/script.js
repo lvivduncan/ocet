@@ -127,6 +127,8 @@ $('#checkout-goods').on('click', function(event){
 // після відправки очищаємо базу
 $('#order form').submit(function() {
     
+    $('#order').html('<p>Замовлення надіслано!</p>');
+
     localStorage.clear();
 });
 
