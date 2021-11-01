@@ -1358,3 +1358,89 @@ a:hover
 {
     content: ' грн';
 }
+
+/* сторінка оформлення замовлення */
+#order 
+{
+    padding: 50px 0;
+    width: 450px;
+    margin: auto;
+}
+
+#order form 
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: column;
+    margin: 20px 0;
+}
+
+#order form input,
+#order form textarea 
+{
+    width: 100%;
+    display: block;
+    margin: 0 0 10px;
+    padding: 10px;
+    border: 1px solid var(--gold);
+    outline: none;
+    transition: .5s;
+}
+
+#order form input:focus,
+#order form textarea:focus 
+{
+    border-color: var(--gray);
+}
+
+#order textarea 
+{
+    height: 120px;
+    resize: none;
+}
+
+#order button 
+{
+    display: inline-block;
+    padding: 10px 40px;
+    color: var(--white);
+    text-transform: uppercase;
+    background: var(--gold);
+    text-decoration: none;
+    letter-spacing: 1px;
+    font-weight: 700;
+    font-style: normal;
+    border: none;
+    cursor: pointer;
+    transition: .5s;
+}
+
+#order button:hover 
+{
+    background:var(--gold-dark);
+}
+
+#order h1 
+{
+    color: var(--gold);
+    font-size: 30px;
+    font-style: italic;
+    font-weight: 400;
+}
+
+#order p 
+{
+    margin: 5px 0;
+}
+
+/* блок у формі, куди виводяться усі замовлені товари */
+#form-goods 
+{
+
+}
+
+#form-price::after 
+{
+    content: ' грн';
+}

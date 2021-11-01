@@ -40,14 +40,28 @@
 
     <!-- контент генерується -->
     <div id="order">
+        <h1>Ви замовили: </h1>            
+            <!-- <div> -->
+                <div id="form-goods"></div> 
+                На суму: <span id="form-price"></span>
+            <!-- </div> -->
+        <form>
+            <input type="text" placeholder="Ваше ім'я *" required>
+            <input type="text" placeholder="Ваш телефон *" required>
+            <input type="text" placeholder="Ваш email *" required>
 
+            
+            <textarea placeholder="Примітка"></textarea>
+            <button>Підтвердити замовлення!</button>
+        </form>
     </div>
 
-    <div id="checkout">
-        <div id="checkout-goods"></div>
+<!--     <section id="checkout">
+        <h1>Ваше замовлення:</h1>
+        <div id="checkout-goods"><ul></ul></div>
         <div id="checkout-price">Сума: <strong></strong></div>
-        <a href="#">Оформити замовлення</a>
-    </div>
+        <a href="order.html">Оформити замовлення</a>
+    </section> -->
 
     <footer id="footer">
         <div class="wrapper">

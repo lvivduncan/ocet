@@ -50,10 +50,15 @@ $('#menu-button').on('click', function(){
 
 
 
-// замовлення 
+////////////////
+// замовлення //
+////////////////
 
-
+// оновлення кошика
 upgradeCheckout();
+
+// оновлення товарів у формі
+upgradeForm();
 
 // клік на кнопку замовлення
 $('.dish button').on('click', function(){
@@ -127,6 +132,11 @@ $('#checkout-goods').on('click', function(event){
     upgradeCheckout();
 });
 
+$('#form-goods').on('click', function(event){
+
+    console.log(event.target)
+});
+
 // оновлення даних кошика
 function upgradeCheckout(){
 
@@ -162,5 +172,44 @@ function upgradeCheckout(){
 
         // і ціну
         $('#checkout-price strong').html('');
+    }
+}
+
+// оновлення товарів у формі замовлення
+function upgradeForm(){
+
+    // смикаємо базу, обробляємо дані і виводимо
+    if(localStorage.getItem('order-content') !== null){
+
+        // показати кошик, якщо є дані
+        // $('#checkout').addClass('active');
+
+        let localContent = localStorage.getItem('order-content').split(';');
+        let localPrice = localStorage.getItem('order-price').split(';');
+    
+        let content = '';
+        let price = 0;
+
+        for(let i = 0; i<localContent.length; i++){
+
+            content += `<p data-id="${i}">${localContent[i]}</p>`;
+            price += +localPrice[i];
+        }
+
+        // додаємо дані
+        $('#form-goods').html(content);
+
+        $('#form-price').html(price);
+    }
+     else {
+
+        // ховаємо кошик, якщо даних немає 
+        // $('#checkout').removeClass('active');
+
+        // додатково очищаємо блок з виводом товарів
+        // $('#checkout-goods').html('');
+
+        // і ціну
+        // $('#checkout-price strong').html('');
     }
 }
