@@ -120,6 +120,31 @@ $('#checkout-goods').on('click', function(event){
     upgradeCheckout();
 });
 
+$('.checkout-goods').on('click', function(event){
+
+    // номер товару у кошикові
+    const id = event.target.dataset.id;
+
+    const localContent = localStorage.getItem('order-content').split(';');
+    const localPrice = localStorage.getItem('order-price').split(';');
+
+    if(localContent.length == 1){
+
+        localStorage.clear();
+    } else {
+        
+        localContent.splice(id, 1);
+        localPrice.splice(id, 1);
+
+        // надсилаємо дані в базу після обробки
+        localStorage.setItem('order-content', localContent.join(';'));
+        localStorage.setItem('order-price', localPrice.join(';'));
+    }
+
+    // оновлюємо дані кошика
+    upgradeCheckout();
+});
+
 /////////////////////
 // відправка форми //
 /////////////////////
@@ -158,11 +183,12 @@ function upgradeCheckout(){
 
         // додаємо дані
         $('#checkout-goods').html(content);
+
         // сума
         $('#checkout-price strong').html(price);
 
         // блок, який генерується і вставляється на сторінці оформлення
-        const orderContent = `
+        let orderContent = `
             <h1>Ви замовили: </h1>            
             <div id="checkout-goods">${content}</div>
             <div id="checkout-price">На суму: <strong>${price}</strong></div>
@@ -180,7 +206,6 @@ function upgradeCheckout(){
 
         // сторінка оформлення
         $('#order').html(orderContent);
-
     } else {
 
         // ховаємо кошик, якщо даних немає 
