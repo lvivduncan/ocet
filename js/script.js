@@ -44,30 +44,32 @@ $('#menu-button').on('click', function(){
 // бронювання столика
 $('#form').trigger('reset');
 
-$(function () {
-    'use strict';
-    $('#form').on('submit', function (e) {
-        e.preventDefault();
-            $.ajax({
-                url: '../mail/send.php',
-                type: 'POST',
-                contentType: false,
-                processData: false,
-                data: new FormData(this),
-                success: function (msg) {
-                console.log(msg);
-                if (msg == 'ok') {
-                    setTimeout(() => {$.fancybox.open(`<p>Лист надіслано!</p>`), 1000});
-                    setTimeout(() => $.fancybox.close(), 2000);
-                    $('#form').trigger('reset'); // очистка формы
-                } else {
-                    setTimeout(() => {$.fancybox.open(`<p>Не вдалося надіслати лист!</p>`), 1000});
-                    setTimeout(() => $.fancybox.close(), 2000);
-                }
+// $(function () {
+
+    // 'use strict';
+
+$('#form').on('submit', function (e) {
+    e.preventDefault();
+        $.ajax({
+            url: '../mail/send.php',
+            type: 'POST',
+            contentType: false,
+            processData: false,
+            data: new FormData(this),
+            success: function (msg) {
+            console.log(msg);
+            if (msg == 'ok') {
+                setTimeout(() => {$.fancybox.open(`<p>Лист надіслано!</p>`), 1000});
+                setTimeout(() => $.fancybox.close(), 2000);
+                $('#form').trigger('reset'); // очистка формы
+            } else {
+                setTimeout(() => {$.fancybox.open(`<p>Не вдалося надіслати лист!</p>`), 1000});
+                setTimeout(() => $.fancybox.close(), 2000);
             }
-        });
+        }
     });
 });
+// });
 
 
 
@@ -171,16 +173,37 @@ $('.checkout-goods').on('click', function(event){
     upgradeCheckout();
 });
 
-/////////////////////
-// відправка форми //
-/////////////////////
+////////////////////////////////
+// відправка форми замовлення //
+////////////////////////////////
 
-// після відправки очищаємо базу
-// $('#order form').submit(function() {
+$('#form-order').trigger('reset');
+
+// $(function () {
     
-//     $('#order').html('<p style="text-align:center">Замовлення надіслано!</p>');
+    // 'use strict';
 
-//     localStorage.clear();
+    $('#form-order').on('submit', function (e) {
+        e.preventDefault();
+            $.ajax({
+                url: '../mail/send.php',
+                type: 'POST',
+                contentType: false,
+                processData: false,
+                data: new FormData(this),
+                success: function (msg) {
+                console.log(msg);
+                if (msg == 'ok') {
+                    setTimeout(() => {$.fancybox.open(`<p>Замовлення надіслано!</p>`), 1000});
+                    setTimeout(() => $.fancybox.close(), 2000);
+                    $('#form-order').trigger('reset'); // очистка формы
+                } else {
+                    setTimeout(() => {$.fancybox.open(`<p>Не вдалося надіслати замовлення!</p>`), 1000});
+                    setTimeout(() => $.fancybox.close(), 2000);
+                }
+            }
+        });
+    });
 // });
 
 // оновлення даних кошика (у тому числі і у формі)
@@ -219,7 +242,7 @@ function upgradeCheckout(){
             <div>${content}</div>
             <div>На суму: <strong>${price}</strong></div>
             <p>Усі поля обов'язкові до заповнення</p>
-            <form method="post">
+            <form method="post" id="form-order">
                 <input type="text" name="name" placeholder="Ваше ім'я *" required>
                 <input type="text" name="phone" placeholder="Ваш телефон *" required>
                 <input type="text" name="mail" placeholder="Ваш email *" required>
