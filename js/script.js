@@ -150,12 +150,12 @@ $('.checkout-goods').on('click', function(event){
 /////////////////////
 
 // після відправки очищаємо базу
-$('#order form').submit(function() {
+// $('#order form').submit(function() {
     
-    $('#order').html('<p style="text-align:center">Замовлення надіслано!</p>');
+//     $('#order').html('<p style="text-align:center">Замовлення надіслано!</p>');
 
-    localStorage.clear();
-});
+//     localStorage.clear();
+// });
 
 // оновлення даних кошика (у тому числі і у формі)
 function upgradeCheckout(){
