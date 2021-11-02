@@ -138,32 +138,7 @@ $('#checkout-goods').on('click', function(event){
     // оновлюємо дані кошика
     upgradeCheckout();
 });
-/* 
-$('.checkout-goods').on('click', function(event){
 
-    // номер товару у кошикові
-    const id = event.target.dataset.id;
-
-    const localContent = localStorage.getItem('order-content').split(';');
-    const localPrice = localStorage.getItem('order-price').split(';');
-
-    if(localContent.length == 1){
-
-        localStorage.clear();
-    } else {
-        
-        localContent.splice(id, 1);
-        localPrice.splice(id, 1);
-
-        // надсилаємо дані в базу після обробки
-        localStorage.setItem('order-content', localContent.join(';'));
-        localStorage.setItem('order-price', localPrice.join(';'));
-    }
-
-    // оновлюємо дані кошика
-    upgradeCheckout();
-});
- */
 ////////////////////////////////
 // відправка форми замовлення //
 ////////////////////////////////
