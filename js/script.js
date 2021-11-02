@@ -204,7 +204,7 @@ function upgradeCheckout(){
         let orderContent = `
             <h1>Ви замовили:</h1>            
             <div>${content}</div>
-            <div>На суму: <strong>${price}</strong></div>
+            <div>На суму: <strong>${price}</strong> грн</div>
             <p>Усі поля обов'язкові до заповнення</p>
             <form method="post" id="form-order">
                 <input type="text" name="name" placeholder="Ваше ім'я *" required>
