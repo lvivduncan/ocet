@@ -1097,8 +1097,12 @@ a:hover
 #menu a:hover p
 {
     color: var(--gold);
-    /* color: var(--white); */
-    /* font-size: 26px; */
+}
+
+#menu a img 
+{
+    width: 100%;
+    object-fit: cover;
 }
 
 /* страви */
