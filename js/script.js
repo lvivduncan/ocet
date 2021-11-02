@@ -44,10 +44,6 @@ $('#menu-button').on('click', function(){
 // бронювання столика
 $('#form').trigger('reset');
 
-// $(function () {
-
-    // 'use strict';
-
 $('#form').on('submit', function (e) {
     e.preventDefault();
         $.ajax({
@@ -69,11 +65,6 @@ $('#form').on('submit', function (e) {
         }
     });
 });
-// });
-
-
-
-
 
 ////////////////
 // замовлення //
@@ -147,7 +138,7 @@ $('#checkout-goods').on('click', function(event){
     // оновлюємо дані кошика
     upgradeCheckout();
 });
-
+/* 
 $('.checkout-goods').on('click', function(event){
 
     // номер товару у кошикові
@@ -172,39 +163,37 @@ $('.checkout-goods').on('click', function(event){
     // оновлюємо дані кошика
     upgradeCheckout();
 });
-
+ */
 ////////////////////////////////
 // відправка форми замовлення //
 ////////////////////////////////
 
 $('#form-order').trigger('reset');
 
-// $(function () {
-    
-    // 'use strict';
-
-    $('#form-order').on('submit', function (e) {
-        e.preventDefault();
-            $.ajax({
-                url: '../mail/send.php',
-                type: 'POST',
-                contentType: false,
-                processData: false,
-                data: new FormData(this),
-                success: function (msg) {
-                console.log(msg);
-                if (msg == 'ok') {
-                    setTimeout(() => {$.fancybox.open(`<p>Замовлення надіслано!</p>`), 1000});
-                    setTimeout(() => $.fancybox.close(), 2000);
-                    $('#form-order').trigger('reset'); // очистка формы
-                } else {
-                    setTimeout(() => {$.fancybox.open(`<p>Не вдалося надіслати замовлення!</p>`), 1000});
-                    setTimeout(() => $.fancybox.close(), 2000);
-                }
+$('#form-order').on('submit', function (e) {
+    e.preventDefault();
+        $.ajax({
+            url: '../mail/send.php',
+            type: 'POST',
+            contentType: false,
+            processData: false,
+            data: new FormData(this),
+            success: function (msg) {
+            console.log(msg);
+            if (msg == 'ok') {
+                setTimeout(() => {$.fancybox.open(`<p>Замовлення надіслано!</p>`), 1000});
+                setTimeout(() => $.fancybox.close(), 2000);
+                $('#form-order').trigger('reset'); // очистка
+                localStorage.clear();
+                upgradeCheckout()
+            } else {
+                setTimeout(() => {$.fancybox.open(`<p>Не вдалося надіслати замовлення!</p>`), 1000});
+                setTimeout(() => $.fancybox.close(), 2000);
             }
-        });
+        }
     });
-// });
+});
+
 
 // оновлення даних кошика (у тому числі і у формі)
 function upgradeCheckout(){
