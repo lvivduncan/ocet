@@ -192,7 +192,7 @@ function upgradeCheckout(){
             <h1>Ви замовили:</h1>            
             <div>${content}</div>
             <div>На суму: <strong>${price}</strong></div>
-            <p>Поля зі зірочкою (*) обов'язкові до заповнення</p>
+            <p>Усі поля обов'язкові до заповнення</p>
             <form method="post">
                 <input type="text" name="name" placeholder="Ваше ім'я *" required>
                 <input type="text" name="phone" placeholder="Ваш телефон *" required>
