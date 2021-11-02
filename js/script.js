@@ -189,9 +189,9 @@ function upgradeCheckout(){
 
         // блок, який генерується і вставляється на сторінці оформлення
         let orderContent = `
-            <h1>Ви замовили: </h1>            
-            <div id="checkout-goods">${content}</div>
-            <div id="checkout-price">На суму: <strong>${price}</strong></div>
+            <h1>Ви замовили:</h1>            
+            <div>${content}</div>
+            <div>На суму: <strong>${price}</strong></div>
             <p>Поля зі зірочкою (*) обов'язкові до заповнення</p>
             <form method="post">
                 <input type="text" name="name" placeholder="Ваше ім'я *" required>
@@ -199,7 +199,6 @@ function upgradeCheckout(){
                 <input type="text" name="mail" placeholder="Ваш email *" required>
                 <input type="hidden" name="dish" value="${hidden}">
                 <input type="hidden" name="price" value="${price}">
-                <textarea name="message" placeholder="Примітка"></textarea>
                 <button id="form-send">Підтвердити замовлення!</button>
             </form>
         `;

@@ -71,36 +71,36 @@
     <script src="js/owl.carousel.js"></script>
     <script src="js/script.js"></script>
 
-    <script>
+    <!-- <script>
         $('body').on('click', function(event){
 
-if($('#checkout-goods').length > 0){
+    if($('#checkout-goods').length > 0){
 
-    // номер товару у кошикові
-    const id = event.target.dataset.id;
+        // номер товару у кошикові
+        const id = event.target.dataset.id;
 
-    const localContent = localStorage.getItem('order-content').split(';');
-    const localPrice = localStorage.getItem('order-price').split(';');
+        const localContent = localStorage.getItem('order-content').split(';');
+        const localPrice = localStorage.getItem('order-price').split(';');
 
-    if(localContent.length == 1){
+        if(localContent.length == 1){
 
-        localStorage.clear();
-    } else {
-        
-        localContent.splice(id, 1);
-        localPrice.splice(id, 1);
+            localStorage.clear();
+        } else {
+            
+            localContent.splice(id, 1);
+            localPrice.splice(id, 1);
 
-        // надсилаємо дані в базу після обробки
-        localStorage.setItem('order-content', localContent.join(';'));
-        localStorage.setItem('order-price', localPrice.join(';'));
+            // надсилаємо дані в базу після обробки
+            localStorage.setItem('order-content', localContent.join(';'));
+            localStorage.setItem('order-price', localPrice.join(';'));
+        }
+
+        // оновлюємо дані кошика
+        upgradeCheckout();        
     }
-
-    // оновлюємо дані кошика
-    upgradeCheckout();        
-}
 
 
 });
-    </script>
+    </script> -->
 </body>
 </html>
