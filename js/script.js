@@ -173,7 +173,7 @@ $('#form-order').trigger('reset');
 $('#form-order').on('submit', function (e) {
     e.preventDefault();
         $.ajax({
-            url: '../mail/send.php',
+            url: '../mail/send-order.php',
             type: 'POST',
             contentType: false,
             processData: false,
