@@ -239,6 +239,8 @@ a:hover
     height: 500px;
     background: transparent;
     text-align: center;
+
+    position: relative;
 }
 
 #banner .wrapper
@@ -292,6 +294,29 @@ a:hover
     }
 }
 
+/* зі затемненням */
+#banner.cover 
+{
+    position: relative;
+}
+
+#banner.cover::before 
+{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 1;
+    background: rgba(0,0,0,.7);
+}
+
+#banner.cover .wrapper
+{
+    position: relative;
+    z-index: 2;
+}
 
 
 /* про нас */
